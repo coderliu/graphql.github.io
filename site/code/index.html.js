@@ -397,7 +397,7 @@ Then run \`ruby hello.rb\` with this code in \`hello.rb\`:
 \`\`\`ruby
 require 'graphql'
 
-QueryType = GraphQL::ObjectType.define do
+class QueryType < GraphQL::Schema::Object
   name 'Query'
   field :hello do
     type types.String
@@ -405,7 +405,7 @@ QueryType = GraphQL::ObjectType.define do
   end
 end
 
-Schema = GraphQL::Schema.define do
+class Schema < GraphQL::Schema
   query QueryType
 end
 
